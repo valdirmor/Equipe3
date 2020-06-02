@@ -3,3 +3,4 @@ Projeto Equipe 3
 Teste da equipe 
 bugfix
 inserindo credencial para o azuredeps
+tst
