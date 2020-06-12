@@ -1,0 +1,43 @@
+
+
+
+
+create table tbl_equipe3_colaboradores(
+	idColaborador	 	integer      not null auto_increment,
+	racf       		integer       not null,
+	nome 			varchar(100)  not null,
+	departamento 		varchar(100)  not null,
+	email 	     		varchar(100)  not null,
+	numEquipamento  	integer       not null,
+	descricao		varchar(100)  not null,
+	numConectorRede		varchar(100)  not null,
+	constraint pk_colab primary key (idColaborador),
+	constraint fk_dep foreign key (idColaborador) references tbl_equipe3_departamentos(idDepartamento)
+    );
+    
+
+create table tbl_equipe3_historicos(
+	idHistorico integer not null auto_increment,
+	nomeSolicitante	varchar(100) not null,
+	dataSolicitacao	date not null,
+	justificativa   varchar(100) not null,
+	depAntigo	varchar(30) not null, 
+	vlanAntiga	varchar(30) not null, 
+	depNovo		varchar(30) not null,
+	vlanNova	varchar(30) not null, 	
+	comandExecutado varchar(100) not null,
+	constraint pk_hist primary key (idHistorico),
+	constraint fk_hist foreign key (idHistorico) references tbl_equipe3_colaboradores(idColaborador)
+);
+
+    
+
+
+
+create table tbl_equipe3_departamentos(
+	idDepartamento 	integer not null auto_increment,
+	nomeDepartamento	varchar(30) not null,
+	nomeVlan  		varchar(50) not null,
+	enderecoVlan		integer(20) not null,
+	constraint pk_dep primary key (idDepartamento)
+);
